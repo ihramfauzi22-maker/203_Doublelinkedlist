@@ -143,3 +143,12 @@ public:
             i++;
         }
     }
+ // Step 4: If current is not the last node
+            if (current->next != NULL)
+                current->next->prev = current->prev;
+        }
+
+        // Step 5: Delete the node
+        delete current;
+        cout << "Record with roll number " << rollNo << " deleted" << endl;
+    }

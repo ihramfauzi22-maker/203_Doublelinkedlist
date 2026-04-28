@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 class Node
 {
 public:
@@ -9,6 +10,7 @@ public:
     Node *next;
     Node *prev;
 };
+
 class DoubleLinkedList
 {
 private:
@@ -19,6 +21,7 @@ public:
     {
         START = NULL;
     }
+
     void addNode()
     {
         int nim;
@@ -39,7 +42,7 @@ public:
                 cout << "\nDuplicate number not allowed" << endl;
                 return;
             }
-             // Step 4: newNode.next = START
+            // Step 4: newNode.next = START
             newNode->next = START;
 
             // Step 5: START.prev = newNode (if START exists)
@@ -53,7 +56,8 @@ public:
             START = newNode;
             return;
         }
-            // insert in between node
+
+        // insert in between node
         // Step 8: Locate position for insertion
         Node *current = START;
         while (current->next != NULL && current->next->noMhs < nim)
@@ -77,14 +81,16 @@ public:
 
         current->next = newNode; // Step 9d: current.next = newNode
     }
-     void hapus()
+
+    void hapus()
     {
         if (START == NULL)
         {
             cout << "\nList is empty" << endl;
             return;
         }
-         cout << "\nEnter the roll number of the student whose record is to be deleted: ";
+
+        cout << "\nEnter the roll number of the student whose record is to be deleted: ";
         int rollNo;
         cin >> rollNo;
 
@@ -99,7 +105,8 @@ public:
             cout << "Record not found" << endl;
             return;
         }
-           // Step 2: If node is at the beginning
+
+        // Step 2: If node is at the beginning
         if (current == START)
         {
             START = current->next; // Step 2a: START = START.next
@@ -120,14 +127,16 @@ public:
         delete current;
         cout << "Record with roll number " << rollNo << " deleted" << endl;
     }
-      void traverse()
+
+    void traverse()
     {
         if (START == NULL)
         {
             cout << "\nList is empty" << endl;
             return;
         }
-         // Step 1: Mark first node as currentNode
+
+        // Step 1: Mark first node as currentNode
         Node *currentNode = START;
 
         // Step 2: Repeat until currentNode == NULL
@@ -142,15 +151,6 @@ public:
             currentNode = currentNode->next;
             i++;
         }
-    }
- // Step 4: If current is not the last node
-            if (current->next != NULL)
-                current->next->prev = current->prev;
-        }
-
-        // Step 5: Delete the node
-        delete current;
-        cout << "Record with roll number " << rollNo << " deleted" << endl;
     }
 
     void revtraverse()
@@ -181,3 +181,11 @@ public:
             i--;
         }
     }
+
+    void searchData()
+    {
+        if (START == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
